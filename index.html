@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veterán Velké kunratické – Archiv časopisu</title>
+  <meta name="description" content="Archiv časopisu Veterán Velké kunratické – všechna vydání od roku 2020 na jednom místě.">
+
+  <meta property="og:title" content="Veterán Velké kunratické">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.veterani-vk.cz">
+  <meta property="og:description" content="Archiv časopisu pro veterány legendárního závodu">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#F5F0E8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== ZÁHLAVÍ ===== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="header-logo" aria-hidden="true">
+        <svg class="header-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="52" cy="14" r="8" fill="#8B6914"/>
+          <path d="M52 22 L46 38 L36 50 M52 22 L58 38 L68 50 M46 38 L42 56 L34 68 M58 38 L60 56 L68 68"
+                stroke="#8B6914" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 72 Q16 44 30 28 Q24 50 26 72 Z" fill="#2D5016" opacity="0.8"/>
+          <path d="M20 72 Q24 52 34 38 Q30 56 31 72 Z" fill="#2D5016" opacity="0.6"/>
+          <path d="M6 60 Q14 46 22 38 Q16 52 18 64 Z" fill="#2D5016" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1 class="site-title">Veterán Velké kunratické</h1>
+        <p class="site-subtitle">Časopis pro veterány legendárního závodu</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HLAVNÍ OBSAH ===== -->
+  <main id="main-content" role="main">
+    <section class="issues-section" aria-labelledby="issues-heading">
+      <h2 id="issues-heading" class="section-heading">Všechna vydání</h2>
+      <p class="section-intro">Klikněte na číslo časopisu a otevřete jej ke čtení.</p>
+      <div class="issues-grid" id="issuesGrid" role="list" aria-label="Vydání časopisu"></div>
+    </section>
+  </main>
+
+  <!-- ===== ZÁPATÍ ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2020–2025 Veterán Velké kunratické. Všechna práva vyhrazena.</p>
+  </footer>
+
+  <!-- ===== ČTENÁŘ – fullscreen scrollovatelný dokument ===== -->
+  <div class="reader-overlay" id="readerOverlay" role="dialog" aria-modal="true" aria-label="Čtenář časopisu" hidden>
+
+    <!-- Pevná lišta nahoře -->
+    <div class="reader-toolbar" id="readerToolbar">
+      <span class="reader-title" id="readerTitle"></span>
+      <div class="reader-toolbar-actions">
+        <button class="reader-pdf" id="readerPdf" aria-label="Stáhnout jako PDF">
+          &#8681; PDF
+        </button>
+        <button class="reader-close" id="readerClose" aria-label="Zavřít (klávesa Escape)">
+          &#10005; Zavřít
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollovatelný obsah -->
+    <div class="reader-scroll" id="readerScroll">
+      <div class="reader-doc" id="readerDoc">
+        <!-- Sem JS vloží obsah z issue-N.html -->
+      </div>
+    </div>
+
+    <!-- Tlačítko "Zpět nahoru" -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Zpět na začátek">
+      &#8679; Nahoru
+    </button>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
