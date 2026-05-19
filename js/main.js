@@ -150,15 +150,15 @@
    ============================================================ */
 var ISSUES = [
   { number: 10, label: 'Číslo 10', date: 'Květen 2026',   file: 'issues/issue-10.pdf', type: 'pdf' },
-  { number: 9,  label: 'Číslo 9',  date: 'Listopad 2025', file: 'issues/issue-9/index.html' },
-  { number: 8,  label: 'Číslo 8',  date: 'Květen 2025',   file: 'issues/issue-8/index.html' },
-  { number: 7,  label: 'Číslo 7',  date: 'Listopad 2024', file: 'issues/issue-7/index.html' },
-  { number: 6,  label: 'Číslo 6',  date: 'Červenec 2024', file: 'issues/issue-6/index.html' },
-  { number: 5,  label: 'Číslo 5',  date: 'Listopad 2023', file: 'issues/issue-5/index.html' },
-  { number: 4,  label: 'Číslo 4',  date: 'Květen 2023',   file: 'issues/issue-4/index.html' },
-  { number: 3,  label: 'Číslo 3',  date: 'Listopad 2022', file: 'issues/issue-3/index.html' },
-  { number: 2,  label: 'Číslo 2',  date: 'Květen 2022',   file: 'issues/issue-2/index.html' },
-  { number: 1,  label: 'Číslo 1',  date: 'Listopad 2020', file: 'issues/issue-1/index.html' },
+  { number: 9,  label: 'Číslo 9',  date: 'Listopad 2025', file: 'issues/issue-9.pdf',  type: 'pdf' },
+  { number: 8,  label: 'Číslo 8',  date: 'Květen 2025',   file: 'issues/issue-8.pdf',  type: 'pdf' },
+  { number: 7,  label: 'Číslo 7',  date: 'Listopad 2024', file: 'issues/issue-7.pdf',  type: 'pdf' },
+  { number: 6,  label: 'Číslo 6',  date: 'Červenec 2024', file: 'issues/issue-6.pdf',  type: 'pdf' },
+  { number: 5,  label: 'Číslo 5',  date: 'Listopad 2023', file: 'issues/issue-5.pdf',  type: 'pdf' },
+  { number: 4,  label: 'Číslo 4',  date: 'Květen 2023',   file: 'issues/issue-4.pdf',  type: 'pdf' },
+  { number: 3,  label: 'Číslo 3',  date: 'Listopad 2022', file: 'issues/issue-3.pdf',  type: 'pdf' },
+  { number: 2,  label: 'Číslo 2',  date: 'Květen 2022',   file: 'issues/issue-2.pdf',  type: 'pdf' },
+  { number: 1,  label: 'Číslo 1',  date: 'Listopad 2020', file: 'issues/issue-1.pdf',  type: 'pdf' },
 ];
 
 /* ---- SVG ikona běžce ---- */
