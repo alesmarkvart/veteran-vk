@@ -239,10 +239,18 @@ function openReader(issueIndex) {
   setTimeout(function () { closeBtn.focus(); }, 50);
 
   if (issue.type === 'pdf') {
-    readerDoc.classList.add('reader-doc--pdf');
-    readerDoc.innerHTML = '<iframe src="' + issue.file + '#zoom=120"'
-      + ' style="width:100%;height:85vh;border:none;display:block;"'
-      + ' title="' + issue.label + '"></iframe>';
+    if (window.innerWidth < 900) {
+      readerDoc.classList.remove('reader-doc--pdf');
+      readerDoc.innerHTML = '<div class="mobile-pdf-view">'
+        + '<p>Na mobilu otevřete PDF přímo v telefonu – přečtete ho pohodlně v celé obrazovce.</p>'
+        + '<a class="mobile-pdf-btn" href="' + issue.file + '" target="_blank" rel="noopener">&#8681;&nbsp; Otevřít PDF</a>'
+        + '</div>';
+    } else {
+      readerDoc.classList.add('reader-doc--pdf');
+      readerDoc.innerHTML = '<iframe src="' + issue.file + '#zoom=120"'
+        + ' style="width:100%;height:85vh;border:none;display:block;"'
+        + ' title="' + issue.label + '"></iframe>';
+    }
     return;
   }
   readerDoc.classList.remove('reader-doc--pdf');
