@@ -254,7 +254,7 @@ body {
 .mobile-pdf-btn {
   display: inline-block;
   background: var(--color-green);
-  color: #fff;
+  color: #fff !important;
   font-family: var(--font-sans);
   font-size: 1.35rem;
   font-weight: 700;
