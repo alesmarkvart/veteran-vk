@@ -8,6 +8,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
+      inject: false,
     }),
     new CopyPlugin({
       patterns: [
@@ -20,6 +21,7 @@ module.exports = merge(common, {
         { from: 'icon.png', to: 'icon.png' },
         { from: '404.html', to: '404.html' },
         { from: 'site.webmanifest', to: 'site.webmanifest' },
+        { from: 'issues', to: 'issues', globOptions: { ignore: ['**/*.docx', '**/*.html', '**/.DS_Store'] } },
       ],
     }),
   ],
