@@ -149,6 +149,7 @@
    DATA VYDÁNÍ
    ============================================================ */
 var ISSUES = [
+  { number: 11, label: 'Číslo 11', date: 'Listopad 2026', file: 'issues/issue-11.pdf', type: 'pdf' },
   { number: 10, label: 'Číslo 10', date: 'Květen 2026',   file: 'issues/issue-10.pdf', type: 'pdf' },
   { number: 9,  label: 'Číslo 9',  date: 'Listopad 2025', file: 'issues/issue-9.pdf',  type: 'pdf' },
   { number: 8,  label: 'Číslo 8',  date: 'Květen 2025',   file: 'issues/issue-8.pdf',  type: 'pdf' },
@@ -226,9 +227,41 @@ var scrollTopBtn = document.getElementById('scrollTopBtn');
 
 var cache = {};
 var currentIssueIndex = 0;
+var currentReturnFocus = null;
+
+var MEDAILONEK = {
+  file: 'issues/o-autorovi.pdf',
+  title: 'O autorovi',
+};
+
+function openMedailonek() {
+  currentIssueIndex = -1;
+  currentReturnFocus = document.getElementById('medailonekBtn');
+
+  readerTitle.textContent = MEDAILONEK.title;
+  readerDoc.innerHTML = '<div class="reader-loading">Načítám…</div>';
+  readerScroll.scrollTop = 0;
+  overlay.removeAttribute('hidden');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function () { closeBtn.focus(); }, 50);
+
+  if (window.innerWidth < 900) {
+    readerDoc.classList.remove('reader-doc--pdf');
+    readerDoc.innerHTML = '<div class="mobile-pdf-view">'
+      + '<p>Na mobilu otevřete PDF přímo v telefonu – přečtete ho pohodlně v celé obrazovce.</p>'
+      + '<a class="mobile-pdf-btn" href="' + MEDAILONEK.file + '" target="_blank" rel="noopener">&#8681;&nbsp; Otevřít PDF</a>'
+      + '</div>';
+  } else {
+    readerDoc.classList.add('reader-doc--pdf');
+    readerDoc.innerHTML = '<iframe src="' + MEDAILONEK.file + '#zoom=120"'
+      + ' style="width:100%;height:85vh;border:none;display:block;"'
+      + ' title="' + MEDAILONEK.title + '"></iframe>';
+  }
+}
 
 function openReader(issueIndex) {
   currentIssueIndex = issueIndex;
+  currentReturnFocus = null;
   var issue = ISSUES[issueIndex];
 
   readerTitle.textContent = issue.label + ' – ' + issue.date;
@@ -278,14 +311,23 @@ function openReader(issueIndex) {
 function closeReader() {
   overlay.setAttribute('hidden', '');
   document.body.style.overflow = '';
+  if (currentReturnFocus) {
+    currentReturnFocus.focus();
+    currentReturnFocus = null;
+    return;
+  }
   var card = document.querySelector('.issue-card[data-issue-index="' + currentIssueIndex + '"]');
   if (card) card.focus();
 }
 
 function printIssue() {
-  var issue = ISSUES[currentIssueIndex];
   var prevTitle = document.title;
-  document.title = issue.label + ' – ' + issue.date + ' – Veterán Velké kunratické';
+  if (currentIssueIndex === -1) {
+    document.title = MEDAILONEK.title + ' – Veterán Velké kunratické';
+  } else {
+    var issue = ISSUES[currentIssueIndex];
+    document.title = issue.label + ' – ' + issue.date + ' – Veterán Velké kunratické';
+  }
   window.print();
   document.title = prevTitle;
 }
@@ -305,6 +347,8 @@ function bindScrollTop() {
 function bindEvents() {
   closeBtn.addEventListener('click', closeReader);
   pdfBtn.addEventListener('click', printIssue);
+  var medailonekBtn = document.getElementById('medailonekBtn');
+  if (medailonekBtn) medailonekBtn.addEventListener('click', openMedailonek);
   document.addEventListener('keydown', function (e) {
     if (!overlay.hasAttribute('hidden') && e.key === 'Escape') closeReader();
   });

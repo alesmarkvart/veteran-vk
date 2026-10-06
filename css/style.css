@@ -73,6 +73,64 @@ body {
 }
 
 /* ============================================================
+   O AUTOROVI – sekce nad vydáními
+   ============================================================ */
+.about-author-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+.about-author-inner {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.about-author-inner .section-heading {
+  margin-bottom: 0;
+}
+
+.about-author-inner .section-intro {
+  margin-bottom: 0.6rem;
+}
+
+.about-author-btn {
+  background: var(--color-green);
+  color: #fff;
+  border: 2px solid var(--color-green);
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.6rem;
+  min-height: 48px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform 0.1s;
+}
+
+.about-author-btn:hover,
+.about-author-btn:focus-visible {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  outline: none;
+}
+
+.about-author-btn:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.about-author-btn:active {
+  transform: scale(0.97);
+}
+
+/* ============================================================
    MŘÍŽKA VYDÁNÍ
    ============================================================ */
 .issues-section {
@@ -80,6 +138,11 @@ body {
   margin: 0 auto;
   padding: 3rem 1.5rem 4rem;
   flex: 1;
+}
+
+/* Když je nad mřížkou sekce "O autorovi", zmenšit horní mezeru */
+.about-author-section + .issues-section {
+  padding-top: 2.5rem;
 }
 
 .section-heading {
