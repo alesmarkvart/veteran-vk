@@ -141,6 +141,24 @@ body {
   .about-author-btn    { font-size: 0.95rem; padding: 0.5rem 0.9rem; }
 }
 
+/* ---- Mobil / tablet na výšku: vydání nahoru, "O autorovi" pod ně ----
+   Starší čtenáři ať na první obrazovce vidí hlavní obsah (čísla časopisu),
+   medailonek autora je sekundární a jde dolů. */
+@media (max-width: 700px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .issues-section {
+    order: 1;
+    padding-top: 2rem;
+  }
+  .about-author-section {
+    order: 2;
+    padding: 0.5rem 1.5rem 2.5rem;
+  }
+}
+
 /* ============================================================
    MŘÍŽKA VYDÁNÍ
    ============================================================ */
